@@ -237,7 +237,7 @@
           <div class="md:hidden">
             <button
               type="button"
-              class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary z-50"
               aria-expanded="false"
             >
               <span class="sr-only">Open main menu</span>
@@ -261,7 +261,9 @@
         </div>
 
         <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden">
+        <div
+          class="mobile-menu hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-b border-gray-200 z-40"
+        >
           <div class="px-2 pt-2 pb-3 space-y-1">
             <a
               href="#simulation"
@@ -910,5 +912,46 @@
         </div>
       </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+      // Wait for the DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the mobile menu button and menu elements
+        const mobileMenuButton = document.querySelector(".mobile-menu-button");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        // Add click event listener to the button
+        mobileMenuButton.addEventListener("click", function () {
+          // Toggle the 'hidden' class on the mobile menu
+          mobileMenu.classList.toggle("hidden");
+
+          // Toggle aria-expanded attribute
+          const expanded =
+            mobileMenuButton.getAttribute("aria-expanded") === "true";
+          mobileMenuButton.setAttribute("aria-expanded", !expanded);
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+        mobileMenuLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+          ) {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
