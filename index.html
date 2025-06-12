@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -929,39 +931,221 @@
     <script>
       // Wait for the DOM to be fully loaded
       document.addEventListener("DOMContentLoaded", function () {
-        // Get the mobile menu button and menu elements
+        // Mobile menu functionality
         const mobileMenuButton = document.querySelector(".mobile-menu-button");
         const mobileMenu = document.querySelector(".mobile-menu");
+        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
 
-        // Add click event listener to the button
-        mobileMenuButton.addEventListener("click", function () {
-          // Toggle the 'hidden' class on the mobile menu
-          mobileMenu.classList.toggle("hidden");
-
-          // Toggle aria-expanded attribute
-          const expanded =
-            mobileMenuButton.getAttribute("aria-expanded") === "true";
-          mobileMenuButton.setAttribute("aria-expanded", !expanded);
+        // Initialize mobile menu state
+        gsap.set(mobileMenu, {
+          height: 0,
+          opacity: 0,
+          display: "none",
         });
 
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+        // Mobile menu toggle with GSAP
+        mobileMenuButton.addEventListener("click", function () {
+          const isExpanded =
+            mobileMenuButton.getAttribute("aria-expanded") === "true";
+
+          if (!isExpanded) {
+            // Open menu
+            gsap.to(mobileMenu, {
+              height: "auto",
+              opacity: 1,
+              display: "block",
+              duration: 0.3,
+              ease: "power2.out",
+            });
+
+            // Animate menu items
+            gsap.from(mobileMenuLinks, {
+              y: 20,
+              opacity: 0,
+              duration: 0.3,
+              stagger: 0.1,
+              ease: "power2.out",
+            });
+          } else {
+            // Close menu
+            gsap.to(mobileMenu, {
+              height: 0,
+              opacity: 0,
+              duration: 0.3,
+              ease: "power2.in",
+              onComplete: () => {
+                mobileMenu.style.display = "none";
+              },
+            });
+          }
+
+          mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+        });
+
+        // Close menu when clicking links
         mobileMenuLinks.forEach((link) => {
           link.addEventListener("click", function () {
-            mobileMenu.classList.add("hidden");
+            gsap.to(mobileMenu, {
+              height: 0,
+              opacity: 0,
+              duration: 0.3,
+              ease: "power2.in",
+              onComplete: () => {
+                mobileMenu.style.display = "none";
+              },
+            });
             mobileMenuButton.setAttribute("aria-expanded", "false");
           });
         });
 
-        // Close mobile menu when clicking outside
+        // Close menu when clicking outside
         document.addEventListener("click", function (event) {
           if (
             !mobileMenu.contains(event.target) &&
             !mobileMenuButton.contains(event.target)
           ) {
-            mobileMenu.classList.add("hidden");
+            gsap.to(mobileMenu, {
+              height: 0,
+              opacity: 0,
+              duration: 0.3,
+              ease: "power2.in",
+              onComplete: () => {
+                mobileMenu.style.display = "none";
+              },
+            });
             mobileMenuButton.setAttribute("aria-expanded", "false");
           }
+        });
+
+        // GSAP Animations for other sections
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Section Animation
+        gsap.from(".hero-section", {
+          duration: 1,
+          y: 100,
+          opacity: 0,
+          ease: "power3.out",
+        });
+
+        // Simulation Section Animation
+        gsap.from("#simulation", {
+          scrollTrigger: {
+            trigger: "#simulation",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // About Section Animation
+        gsap.from("#about", {
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // PER Section Animation
+        gsap.from("#per", {
+          scrollTrigger: {
+            trigger: "#per",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Avantages Section Animation
+        gsap.from("#avantages", {
+          scrollTrigger: {
+            trigger: "#avantages",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Contact Section Animation
+        gsap.from("#contact", {
+          scrollTrigger: {
+            trigger: "#contact",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Footer Animation
+        gsap.from("footer", {
+          scrollTrigger: {
+            trigger: "footer",
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 30,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Stagger animations for list items
+        gsap.utils.toArray("ul li").forEach((list) => {
+          gsap.from(list, {
+            scrollTrigger: {
+              trigger: list,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+            duration: 0.5,
+            y: 20,
+            opacity: 0,
+            ease: "power2.out",
+          });
+        });
+
+        // Form elements animation
+        gsap.from("form input, form select", {
+          scrollTrigger: {
+            trigger: "form",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.5,
+          x: 100,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out",
+        });
+
+        // Form container animation
+        gsap.from(".lg\\:col-span-1.order-first.lg\\:order-last", {
+          scrollTrigger: {
+            trigger: "#simulation",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.8,
+          x: 200,
+          opacity: 0,
+          ease: "power2.out",
         });
       });
     </script>
