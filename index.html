@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0F172A", // Slate 900
+              secondary: "#334155", // Slate 700
+              accent: "#0EA5E9", // Sky 500
+              success: "#10B981", // Emerald 500
+              warning: "#F59E0B", // Amber 500
+              danger: "#EF4444", // Red 500
+              dark: "#020617", // Slate 950
+              light: "#F8FAFC", // Slate 50
+              surface: "#FFFFFF",
+              surfaceHover: "#F1F5F9", // Slate 100
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            backgroundImage: {
+              "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+              "hero-pattern": "url('./assets/retraite.jpg')",
+            },
+          },
+        },
+      };
+    </script>
+    <meta name="author" content="Aksam Assurance" />
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.webp" />
+    <link rel="apple-touch-icon" type="icon" href="./assets/logo.webp" />
+    <title>Accueil - Assurance retraite complémentaire</title>
+    <meta
+      name="description"
+      content="Devis pour une assurance retraite complémentaire en ligne et en quelque clics."
+    />
+    <meta
+      name="keywords"
+      content="Assurance complémentaire retraite,Assurance épargne retraite, Épargne retraite "
+    />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M7ZKTLS");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/plain"
+      data-cookieconsent="statistics"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-7GKKQW2YCH"
+    ></script>
+    <script type="text/plain" data-cookieconsent="statistics">
+      window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-7GKKQW2YCH');
+    </script>
+
+    <!-- Script de gestion du consentement -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500, // Optionnel : attendre la mise à jour avant d'envoyer les données.
+      });
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        if (document.cookie.indexOf("displayCookieConsent=y") >= 0) {
+          gtag("consent", "update", {
+            ad_storage: "granted",
+            analytics_storage: "granted",
+            ad_user_data: "granted",
+            ad_personalization: "granted",
+          });
+        }
+      });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Ads -->
+
+    <script
+      type="text/plain"
+      data-cookieconsent="marketing"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-716366483"
+    ></script>
+    <script type="text/plain" data-cookieconsent="marketing">
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-716366483');
+    </script>
+    <!-- End Global site tag (gtag.js) - Google Ads -->
+    <!-- Cookies  -->
+    <script>
+      gaProperty = "GTM-M7ZKTLS";
+
+      // Désactive le tracking si le cookie d'acception des conditions n'est pas présent
+      var disableStr = "ga-disable-" + gaProperty;
+
+      if (document.cookie.indexOf("displayCookieConsent=y") < 0) {
+        window[disableStr] = true;
+      }
+    </script>
+    <!-- End Cookies  -->
+  </head>
+
+  <body class="bg-gradient-to-br from-light via-white to-light min-h-screen">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M7ZKTLS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header Navigation -->
+    <header
+      class="bg-white/80 backdrop-blur-lg shadow-sm sticky top-0 z-50 border-b border-gray-100"
+    >
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logo and Title -->
+          <div class="flex items-center">
+            <a href="/" class="flex items-center space-x-3">
+              <img
+                src="./assets/logo.webp"
+                alt="Aksam Assurance"
+                class="h-12 w-auto"
+              />
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#simulation"
+              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
+            >
+              Simulation
+            </a>
+            <a
+              href="#about"
+              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
+            >
+              À propos
+            </a>
+            <a
+              href="#per"
+              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
+            >
+              Le PER
+            </a>
+            <a
+              href="#avantages"
+              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
+            >
+              Avantages
+            </a>
+            <a
+              href="#contact"
+              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
+            >
+              Contact
+            </a>
+          </div>
+
+          <!-- Contact Button -->
+          <div class="flex items-center">
+            <a
+              href="tel:0182834800"
+              class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-full text-white bg-accent hover:bg-accent/90 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            >
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              01.82.83.48.00
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              type="button"
+              class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+          <div class="px-2 pt-2 pb-3 space-y-1">
+            <a
+              href="#simulation"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+            >
+              Simulation
+            </a>
+            <a
+              href="#about"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+            >
+              À propos
+            </a>
+            <a
+              href="#per"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+            >
+              Le PER
+            </a>
+            <a
+              href="#avantages"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+            >
+              Avantages
+            </a>
+            <a
+              href="#contact"
+              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Hero Section -->
+      <section class="relative rounded-3xl overflow-hidden mb-16">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary/95 to-accent/95"
+        ></div>
+        <div class="relative z-10 py-24 px-8 text-center">
+          <h1
+            class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+          >
+            Sécurisez votre avenir avec notre assurance retraite
+          </h1>
+          <p class="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
+            Préparez votre retraite sereinement avec des solutions adaptées à
+            vos besoins et objectifs
+          </p>
+          <a
+            href="#simulation"
+            class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-accent bg-white hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          >
+            Commencer ma simulation
+            <svg
+              class="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Simulation Section -->
+      <section id="simulation" class="scroll-mt-20">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Form Card - Now first on mobile -->
+          <div class="lg:col-span-1 order-first lg:order-last">
+            <div
+              class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100"
+            >
+              <div class="bg-gradient-to-r from-accent to-accent/80 px-6 py-4">
+                <h3 class="text-xl font-semibold text-white flex items-center">
+                  <svg
+                    class="w-6 h-6 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                    />
+                  </svg>
+                  Simulation gratuite
+                </h3>
+              </div>
+              <div class="p-4">
+                <form action="/" method="POST" class="space-y-3">
+                  <input
+                    type="hidden"
+                    name="_token"
+                    value="wcDEFeLlI1sfIPqRgrVYvBG3NSBTlpAUVcnnQXOU"
+                  />
+
+                  <!-- Personal Info -->
+                  <div>
+                    <input
+                      type="text"
+                      name="nom"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                      placeholder="Nom"
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      type="text"
+                      name="prenom"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                      placeholder="Prénom"
+                    />
+                  </div>
+
+                  <!-- Contact Info -->
+                  <div>
+                    <input
+                      type="email"
+                      name="email"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                      placeholder="Email"
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      type="text"
+                      name="tele"
+                      maxlength="10"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                      placeholder="Téléphone"
+                    />
+                  </div>
+
+                  <!-- Additional Info -->
+                  <div>
+                    <input
+                      type="date"
+                      name="brithAt"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                    />
+                  </div>
+
+                  <div>
+                    <select
+                      name="gender"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                    >
+                      <option value="" selected>Civilité</option>
+                      <option value="1">Mr</option>
+                      <option value="2">Mme</option>
+                    </select>
+                  </div>
+
+                  <!-- Retirement Info -->
+                  <div>
+                    <select
+                      name="lastAssure"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                    >
+                      <option value="" selected>Montant mensuel</option>
+                      <option value="50€">50€</option>
+                      <option value="100€">100€</option>
+                      <option value="150€">150€</option>
+                      <option value="200€">200€</option>
+                      <option value="250€">250€</option>
+                      <option value="300€">300€</option>
+                      <option value="350€">350€</option>
+                      <option value="400€">400€</option>
+                      <option value="450€">450€</option>
+                      <option value="500€">500€</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <select
+                      name="assure"
+                      class="w-full px-3 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-accent focus:border-accent transition-colors duration-200 bg-gray-50 text-sm"
+                    >
+                      <option value="" selected>Age de départ</option>
+                      <option value="60">60 ans</option>
+                      <option value="61">61 ans</option>
+                      <option value="62">62 ans</option>
+                      <option value="63">63 ans</option>
+                      <option value="64">64 ans</option>
+                      <option value="65">65 ans</option>
+                    </select>
+                  </div>
+
+                  <p
+                    class="text-[10px] text-gray-600 bg-gray-50 p-2 rounded-md border border-gray-200"
+                  >
+                    En cliquant sur 'Comparer', vous acceptez de transmettre vos
+                    informations à AKSAM ASSURANCES, qui accepte de les utiliser
+                    conformément à sa politique de confidentialité dans le but
+                    de vous fournir des propositions de devis d'assurances
+                    adapté à votre recherche
+                  </p>
+
+                  <button
+                    type="submit"
+                    name="confirmer"
+                    class="w-full bg-gradient-to-r from-accent to-accent/80 text-white font-semibold py-2 px-4 rounded-md transition-all duration-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 flex items-center justify-center text-sm"
+                  >
+                    <svg
+                      class="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                    Comparer maintenant
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content - Now second on mobile -->
+          <div class="lg:col-span-2 order-last lg:order-first">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+              <div class="p-8">
+                <h2 class="text-3xl font-bold text-primary mb-6">
+                  Assurance retraite complémentaire
+                </h2>
+                <div
+                  class="relative rounded-2xl overflow-hidden shadow-lg mb-8"
+                >
+                  <img
+                    src="./assets/retraite.jpg"
+                    class="w-full h-[400px] object-cover"
+                    alt="Assurance retraite complémentaire"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"
+                  ></div>
+                  <div class="absolute bottom-0 left-0 p-6 text-white">
+                    <h3 class="text-2xl font-bold mb-2">
+                      Préparez votre retraite dès aujourd'hui
+                    </h3>
+                    <p class="text-white/90">
+                      Des solutions adaptées à vos besoins et objectifs
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="mt-16 scroll-mt-20">
+        <div class="bg-white rounded-3xl shadow-xl p-8">
+          <div class="flex items-center space-x-4 mb-8">
+            <div
+              class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-primary">
+              I. Assurance épargne retraite
+            </h2>
+          </div>
+          <p class="text-gray-700 mb-6 text-lg">
+            L'assurance retraite complémentaire est un contrat d'assurance qui
+            permet à un individu de se constituer une rente ou un capital
+            supplémentaire pour compléter sa pension de retraite de base.
+          </p>
+        </div>
+      </section>
+
+      <!-- PER Section -->
+      <section id="per" class="mt-16 scroll-mt-20">
+        <div class="bg-white rounded-3xl shadow-xl p-8">
+          <div class="flex items-center space-x-4 mb-8">
+            <div
+              class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-primary">
+              II. Le Plan d'Épargne Retraite (PER)
+            </h2>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                1. Qu'est-ce que le PER
+              </h3>
+              <p class="text-gray-700">
+                Le PER est un produit d'épargne à long terme lancé en 2019 pour
+                préparer sa retraite. Il remplace les anciens dispositifs comme
+                le PERP ou Madelin. L'argent est généralement bloqué jusqu'à la
+                retraite (sauf exceptions).
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                2. Les 3 types de PER:
+              </h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li>
+                  <strong>PER individuel (PERI) :</strong> ouvert par tout
+                  particulier.
+                </li>
+                <li>
+                  <strong>PER d'entreprise obligatoire :</strong> mis en place
+                  par l'employeur.
+                </li>
+                <li>
+                  <strong>PER collectif (PERCOL) :</strong> accessible via
+                  l'entreprise, mais facultatif.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                3. Que peut-on y mettre
+              </h3>
+              <p class="text-gray-700">
+                Les versements peuvent être déduits du revenu imposable, dans la
+                limite :
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                4. Avantage fiscal à l'entrée
+              </h3>
+              <p class="text-gray-700 mb-3">
+                Des actions, ETF, fonds en euros, private equity, etc. Grande
+                liberté de choix pour construire son portefeuille.
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li>10% des revenus nets (max 35 194 € pour salariés)</li>
+                <li>Jusqu'à 85 780 € pour les indépendants (TNS)</li>
+              </ul>
+              <p class="text-gray-700 mt-3">
+                Plus votre impôt est élevé, plus le PER est avantageux
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                5. Fiscalité à la sortie
+              </h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li>
+                  Le capital est imposé (revenu + flat tax sur les plus-values).
+                </li>
+                <li>
+                  La rente viagère est fiscalement moins intéressante que la
+                  sortie en capital.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                6. En résumé
+              </h3>
+              <p class="text-gray-700">
+                Le PER est très pertinent pour les contribuables fortement
+                imposés, surtout les indépendants. Il permet d'optimiser sa
+                retraite grâce à l'effet de levier fiscal, mais il faut bien
+                comprendre la fiscalité et choisir un contrat peu chargé en
+                frais.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Avantages Section -->
+      <section id="avantages" class="mt-16 scroll-mt-20">
+        <div class="bg-white rounded-3xl shadow-xl p-8">
+          <div class="flex items-center space-x-4 mb-8">
+            <div
+              class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-primary">III. Les Avantages</h2>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                1. Avantages du PER
+              </h3>
+              <p class="text-gray-700">
+                Le PER offre plusieurs avantages pour les individus, notamment :
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li>
+                  <strong>Liquidité :</strong> Le PER peut être converti en
+                  capital ou en rente à tout moment.
+                </li>
+                <li>
+                  <strong>Diversification :</strong> Le PER permet de
+                  diversifier son portefeuille d'investissements.
+                </li>
+                <li>
+                  <strong>Fiscalité :</strong> Le PER peut être avantageux pour
+                  les contribuables fortement imposés.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                2. Avantages de la rente viagère
+              </h3>
+              <p class="text-gray-700">
+                La rente viagère peut être un avantage pour les retraités, car
+                elle leur permet de recevoir une rente régulière tout au long de
+                leur retraite.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                3. Avantages de la sortie en capital
+              </h3>
+              <p class="text-gray-700">
+                La sortie en capital peut être un avantage pour les retraités
+                qui souhaitent utiliser leur épargne pour financer d'éventuels
+                projets personnels ou pour assurer une meilleure qualité de vie
+                en retraite.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="mt-16 scroll-mt-20">
+        <div class="bg-white rounded-3xl shadow-xl p-8">
+          <div class="flex items-center space-x-4 mb-8">
+            <div
+              class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-accent"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-primary">IV. Contactez-nous</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                Nos coordonnées
+              </h3>
+              <div class="space-y-4">
+                <p class="flex items-center text-gray-700">
+                  <svg
+                    class="w-5 h-5 mr-2 text-accent"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                  10 rue de Penthièvre, 75008 Paris
+                </p>
+                <p class="flex items-center text-gray-700">
+                  <svg
+                    class="w-5 h-5 mr-2 text-accent"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                  01.82.83.48.00
+                </p>
+                <p class="flex items-center text-gray-700">
+                  <svg
+                    class="w-5 h-5 mr-2 text-accent"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  contact@aksam-assurances.fr
+                </p>
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                Horaires d'ouverture
+              </h3>
+              <div class="space-y-2 text-gray-700">
+                <p>Lundi - Vendredi: 9h00 - 18h00</p>
+                <p>Samedi - Dimanche: Fermé</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Aksam Assurance</h3>
+            <p class="text-gray-400">
+              Votre partenaire de confiance pour préparer votre retraite
+              sereinement.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Liens utiles</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#simulation"
+                  class="text-gray-400 hover:text-white transition-colors"
+                >
+                  Simulation
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="text-gray-400 hover:text-white transition-colors"
+                >
+                  À propos
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#per"
+                  class="text-gray-400 hover:text-white transition-colors"
+                >
+                  Le PER
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>10 rue de Penthièvre</li>
+              <li>75008 Paris</li>
+              <li>01.82.83.48.00</li>
+              <li>contact@aksam-assurances.fr</li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>© 2025 Aksam Assurance. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

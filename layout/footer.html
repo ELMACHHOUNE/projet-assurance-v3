@@ -1,0 +1,148 @@
+<!-- Footer -->
+<footer class="bg-gray-900 text-white mt-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+    >
+      <div class="text-sm">
+        © 2025 Copyright:
+        <a
+          href="https://www.aksam-assurances.fr/"
+          class="text-primary hover:text-accent transition-colors"
+        >
+          aksam-assurances
+        </a>
+      </div>
+      <div class="flex space-x-4">
+        <a
+          href="https://retraite-complementaire.aksam-assurances.fr/mention-legale"
+          class="text-sm text-gray-300 hover:text-white transition-colors"
+        >
+          Mentions légales
+        </a>
+        <span class="text-gray-600">|</span>
+        <a
+          href="https://retraite-complementaire.aksam-assurances.fr/politique-legale"
+          class="text-sm text-gray-300 hover:text-white transition-colors"
+        >
+          Politique de confidentialité
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cookie Modal -->
+<div id="cookieModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+  <div
+    class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"
+  >
+    <div class="mt-3">
+      <h3 class="text-lg font-medium text-gray-900">
+        Vos paramètres de confidentialité
+      </h3>
+      <div class="mt-2 px-7 py-3">
+        <p class="text-sm text-gray-500">
+          La sécurité de vos données personnelles est une priorité pour nous.
+          C'est la raison pour laquelle vous avez un contrôle total sur les
+          informations que nous pouvons traiter.
+        </p>
+        <div class="mt-4">
+          <label class="inline-flex items-center">
+            <input
+              type="checkbox"
+              id="cookieAccepte"
+              class="form-checkbox h-5 w-5 text-primary"
+              checked
+            />
+            <span class="ml-2 text-gray-700">Cookie de performances</span>
+          </label>
+        </div>
+      </div>
+      <div class="items-center px-4 py-3">
+        <button
+          id="saveCookiePref"
+          class="px-4 py-2 bg-primary text-white text-base font-medium rounded-md shadow-sm hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary"
+        >
+          Sauvegarder la sélection
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Additional Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+<script src="https://retraite-complementaire.aksam-assurances.fr/js/app.js"></script>
+<script src="https://retraite-complementaire.aksam-assurances.fr/js/cookiechoices.js"></script>
+
+<!-- Consent Cookies -->
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+    if (document.cookie.indexOf("aksamPerformance") < 0) {
+      cookieChoices.showCookieConsentBar(
+        "retraite-complementaire.aksam-assurances.fr utilise des cookies pour vous offrir le meilleur service. En poursuivant, vous acceptez l'utilisation des cookies.",
+        "J'accepte",
+        " En savoir plus ",
+        " mentions-legales ",
+        " Ouvrir les paramètres "
+      );
+    }
+  });
+</script>
+
+<script src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+  document
+    .getElementById("userPref")
+    .addEventListener("click", validationUserCookie, false);
+
+  function validationUserCookie() {
+    if (document.getElementById("cookieAccepte").checked === true) {
+      createCookiePerformance(1);
+    } else {
+      createCookiePerformance(0);
+    }
+  }
+
+  function createCookiePerformance(value) {
+    var expiryDate = new Date();
+    var cookieName = "aksamPerformance";
+    expiryDate.setMonth(expiryDate.getMonth() + 1);
+    document.cookie =
+      cookieName +
+      "=" +
+      value +
+      "; path=/; expires=" +
+      expiryDate.toGMTString();
+    $("#cookieChoiceInfo").remove();
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Aksam Assurance",
+    "image": "https://www.lassurance-des-transporteurs.fr/assets/img/favicon.png",
+    "telephone": "01 82 83 48 00",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10 rue de Penthièvre",
+      "addressCountry": "FR",
+      "addressLocality": "PARIS",
+      "postalCode": "75008"
+    },
+    "url": "https://www.lassurance-des-transporteurs.fr",
+    "priceRange": "€€",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+33 1 82 83 48 00",
+      "contactType": "Customer Service",
+      "availableLanguage": ["French", "English"]
+    }
+  }
+</script>
+
+<script src="js/script.js"></script>
