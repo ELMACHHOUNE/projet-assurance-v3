@@ -169,7 +169,7 @@
         <div class="flex justify-between items-center h-20">
           <!-- Title -->
           <div class="flex items-center">
-            <h1 class="text-base font-semibold text-primary">
+            <h1 class="text-sm sm:text-base font-semibold text-primary">
               <span class="typing-text"></span
               ><span class="typing-cursor">|</span>
             </h1>
@@ -314,19 +314,6 @@
           ease: "power2.out",
         });
 
-        // Contact Section Animation
-        gsap.from("#contact", {
-          scrollTrigger: {
-            trigger: "#contact",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
         // Footer Animation
         gsap.from("footer", {
           scrollTrigger: {
@@ -422,25 +409,6 @@
                 Préparez votre retraite sereinement avec des solutions adaptées
                 à vos besoins et objectifs
               </p>
-              <a
-                href="#simulation"
-                class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 fresh-up-button"
-              >
-                Commencer ma simulation
-                <svg
-                  class="w-5 h-5 ml-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 19V5m0 0l-7 7m7-7l7 7"
-                  />
-                </svg>
-              </a>
             </div>
 
             <!-- Right side - Form -->
@@ -605,268 +573,96 @@
       <!-- Content Sections Container -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
         <!-- About Section -->
-        <section id="about" class="scroll-mt-20">
+        <section id="assurance-info" class="scroll-mt-20">
           <div class="bg-white rounded-3xl shadow-xl p-8">
-            <div class="flex items-center space-x-4 mb-8">
-              <div
-                class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center"
-              >
-                <svg
-                  class="w-6 h-6 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h2 class="text-2xl md:text-3xl font-bold text-primary">
-                Assurance épargne retraite
-              </h2>
-            </div>
-            <p class="text-base md:text-lg text-gray-700 mb-6">
+            <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6">
+              I.Assurance épargne retraite
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 mb-8">
               L'assurance retraite complémentaire est un contrat d'assurance qui
               permet à un individu de se constituer une rente ou un capital
-              supplémentaire pour compléter sa pension de retraite de base.
+              supplémentaire pour compléter sa pension de retraite de base. Elle
+              est généralement souscrite à titre individuel ou proposée par
+              l'employeur dans le cadre d'un dispositif collectif.
             </p>
-          </div>
-        </section>
 
-        <!-- PER Section -->
-        <section id="per" class="scroll-mt-20 text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-8">
-            Le Plan d'Épargne Retraite (PER)
-          </h2>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Featured Article Card (for the intro) -->
-            <div
-              class="lg:col-span-2 bg-white rounded-3xl shadow-xl overflow-hidden"
-            >
-              <img
-                src="./assets/per.jpg"
-                alt="Le Plan d'Épargne Retraite"
-                class="w-full h-64 object-cover"
-              />
-              <div class="p-6 md:p-8 text-left">
-                <h3 class="text-xl md:text-2xl font-bold text-primary mb-4">
-                  Découvrez le Plan d'Épargne Retraite et ses avantages
-                </h3>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold text-primary mb-4">
+              1.Qu'est-ce que le PER
+            </h3>
+            <p class="text-base text-gray-700 mb-8">
+              Le PER est un produit d'épargne à long terme lancé en 2019 pour
+              préparer sa retraite. Il remplace les anciens dispositifs comme le
+              PERP ou Madelin. L'argent est généralement bloqué jusqu'à la
+              retraite (sans exceptions).
+            </p>
 
-            <!-- Smaller Article Cards (for each of the 6 points) -->
-            <div
-              class="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 text-left"
+            <h3 class="text-xl font-bold text-primary mb-4">
+              2.Les 3 types de PER:
+            </h3>
+            <ul
+              class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8"
             >
-              <div class="flex-grow">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  1. Qu'est-ce que le PER
-                </h3>
-                <p class="text-base text-gray-700">
-                  Le PER est un produit d'épargne à long terme lancé en 2019
-                  pour préparer sa retraite. Il remplace les anciens dispositifs
-                  comme le PERP ou Madelin. L'argent est généralement bloqué
-                  jusqu'à la retraite (sauf exceptions).
-                </p>
-              </div>
-              <div class="flex-shrink-0">
-                <svg
-                  class="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
+              <li>
+                <strong>PER individuel (PERI) :</strong> ouvert par tout
+                particulier.
+              </li>
+              <li>
+                <strong>PER d'entreprise obligatoire :</strong> mis en place par
+                l'employeur.
+              </li>
+              <li>
+                <strong>PER collectif (PERCOL) :</strong> accessible via
+                l'entreprise, mais facultatif.
+              </li>
+            </ul>
 
-            <div
-              class="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 text-left"
-            >
-              <div class="flex-grow">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  2. Les 3 types de PER:
-                </h3>
-                <ul
-                  class="list-disc list-inside space-y-2 text-base text-gray-700"
-                >
-                  <li>
-                    <strong>PER individuel (PERI) :</strong> ouvert par tout
-                    particulier.
-                  </li>
-                  <li>
-                    <strong>PER d'entreprise obligatoire :</strong> mis en place
-                    par l'employeur.
-                  </li>
-                  <li>
-                    <strong>PER collectif (PERCOL) :</strong> accessible via
-                    l'entreprise, mais facultatif.
-                  </li>
-                </ul>
-              </div>
-              <div class="flex-shrink-0">
-                <svg
-                  class="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold text-primary mb-4">
+              3.Que peut-on y mettre
+            </h3>
+            <p class="text-base text-gray-700 mb-8">
+              Les versements peuvent être déduits du revenu imposable, dans la
+              limite :
+            </p>
 
-            <div
-              class="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 text-left"
+            <h3 class="text-xl font-bold text-primary mb-4">
+              4.Avantage fiscal à l'entrée
+            </h3>
+            <p class="text-base text-gray-700">
+              Des actions, ETF, fonds en euros, private equity, etc. Grande
+              liberté de choix pour construire son portefeuille.
+            </p>
+            <ul
+              class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8"
             >
-              <div class="flex-grow">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  3. Que peut-on y mettre
-                </h3>
-                <p class="text-base text-gray-700">
-                  Les versements peuvent être déduits du revenu imposable, dans
-                  la limite :
-                </p>
-              </div>
-              <div class="flex-shrink-0">
-                <svg
-                  class="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
+              <li>10% des revenus nets (max 35 194 € pour salariés)</li>
+              <li>Jusqu'à 85 780 € pour les indépendants (TNS)</li>
+            </ul>
+            <p class="text-base text-gray-700 mb-8">
+              Plus votre impôt est élevé, plus le PER est avantageux
+            </p>
 
-            <div
-              class="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 text-left"
+            <h3 class="text-xl font-bold text-primary mb-4">
+              5.Fiscalité à la sortie
+            </h3>
+            <ul
+              class="list-disc list-inside space-y-2 text-base text-gray-700 mb-8"
             >
-              <div class="flex-grow">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  4. Avantage fiscal à l'entrée
-                </h3>
-                <p class="text-base text-gray-700 mb-3">
-                  Des actions, ETF, fonds en euros, private equity, etc. Grande
-                  liberté de choix pour construire son portefeuille.
-                </p>
-                <ul
-                  class="list-disc list-inside space-y-2 text-base text-gray-700"
-                >
-                  <li>10% des revenus nets (max 35 194 € pour salariés)</li>
-                  <li>Jusqu'à 85 780 € pour les indépendants (TNS)</li>
-                </ul>
-                <p class="text-base text-gray-700 mt-3">
-                  Plus votre impôt est élevé, plus le PER est avantageux
-                </p>
-              </div>
-              <div class="flex-shrink-0">
-                <svg
-                  class="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
+              <li>
+                Le capital est imposé (revenu + flat tax sur les plus-values).
+              </li>
+              <li>
+                La rente viagère est fiscalement moins intéressante que la
+                sortie en capital.
+              </li>
+            </ul>
 
-            <div
-              class="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 text-left"
-            >
-              <div class="flex-grow">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  5. Fiscalité à la sortie
-                </h3>
-                <ul
-                  class="list-disc list-inside space-y-2 text-base text-gray-700"
-                >
-                  <li>
-                    Le capital est imposé (revenu + flat tax sur les
-                    plus-values).
-                  </li>
-                  <li>
-                    La rente viagère est fiscalement moins intéressante que la
-                    sortie en capital.
-                  </li>
-                </ul>
-              </div>
-              <div class="flex-shrink-0">
-                <svg
-                  class="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            <div
-              class="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-6 text-left"
-            >
-              <div class="flex-grow">
-                <h3 class="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  6. En résumé
-                </h3>
-                <p class="text-base text-gray-700">
-                  Le PER est très pertinent pour les contribuables fortement
-                  imposés, surtout les indépendants. Il permet d'optimiser sa
-                  retraite grâce à l'effet de levier fiscal, mais il faut bien
-                  comprendre la fiscalité et choisir un contrat peu chargé en
-                  frais.
-                </p>
-              </div>
-              <div class="flex-shrink-0">
-                <svg
-                  class="w-8 h-8 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
+            <h3 class="text-xl font-bold text-primary mb-4">6.En résumé</h3>
+            <p class="text-base text-gray-700">
+              Le PER est très pertinent pour les contribuables fortement
+              imposés**, surtout les indépendants. Il permet d'optimiser sa
+              retraite grâce à **l'effet de levier fiscal**, mais il faut bien
+              comprendre la fiscalité et choisir un contrat peu chargé en frais.
+            </p>
           </div>
         </section>
 
@@ -884,7 +680,7 @@
               </p>
               <a
                 href="#simulation"
-                class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 fresh-up-button"
+                class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 fresh-up-button"
               >
                 Commencer ma simulation
                 <svg
@@ -901,178 +697,6 @@
                   />
                 </svg>
               </a>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="scroll-mt-20 text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-8">
-            Contactez-nous
-          </h2>
-          <div
-            class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl mx-auto"
-          >
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-              <!-- Left Side - Contact Info -->
-              <div
-                class="bg-gradient-to-br from-accent/10 to-white p-8 lg:p-12"
-              >
-                <div class="space-y-8">
-                  <!-- Address -->
-                  <div class="flex items-center space-x-4 group">
-                    <div
-                      class="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                    >
-                      <svg
-                        class="w-6 h-6 text-accent group-hover:text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-gray-600 whitespace-nowrap">
-                        <span class="text-lg font-semibold text-gray-900"
-                          >Adresse :</span
-                        >
-                        10 rue de Penthièvre, 75008 Paris
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- Phone -->
-                  <div class="flex items-center space-x-4 group">
-                    <div
-                      class="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                    >
-                      <svg
-                        class="w-6 h-6 text-accent group-hover:text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-gray-600 whitespace-nowrap">
-                        <span class="text-lg font-semibold text-gray-900"
-                          >Téléphone :</span
-                        >
-                        <a
-                          href="tel:0182834800"
-                          class="text-accent hover:text-accent/80 transition-colors font-medium"
-                          >01.82.83.48.00</a
-                        >
-                      </p>
-                    </div>
-                  </div>
-
-                  <!-- Email -->
-                  <div class="flex items-center space-x-4 group">
-                    <div
-                      class="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                    >
-                      <svg
-                        class="w-6 h-6 text-accent group-hover:text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="text-gray-600 whitespace-nowrap">
-                        <span class="text-lg font-semibold text-gray-900"
-                          >Email :</span
-                        >
-                        <a
-                          href="mailto:contact@aksam-assurances.fr"
-                          class="text-accent hover:text-accent/80 transition-colors font-medium"
-                          >contact@aksam-assurances.fr</a
-                        >
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Side - Opening Hours -->
-              <div
-                class="bg-gradient-to-br from-primary to-primary/90 p-8 lg:p-12 text-white"
-              >
-                <div class="space-y-6">
-                  <div class="flex items-center space-x-3 mb-8">
-                    <div
-                      class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center"
-                    >
-                      <svg
-                        class="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold">Horaires d'ouverture</h3>
-                  </div>
-
-                  <div class="space-y-4">
-                    <div
-                      class="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300"
-                    >
-                      <span class="font-medium">Lundi - Vendredi</span>
-                      <span class="text-accent font-semibold"
-                        >9h00 - 18h00</span
-                      >
-                    </div>
-                    <div
-                      class="flex justify-between items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300"
-                    >
-                      <span class="font-medium">Samedi - Dimanche</span>
-                      <span class="text-accent font-semibold">Fermé</span>
-                    </div>
-                  </div>
-
-                  <div class="mt-8 pt-8 border-t border-white/10">
-                    <p class="text-white/80">
-                      Nous sommes à votre disposition pour répondre à toutes vos
-                      questions et vous accompagner dans vos projets.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -1103,18 +727,10 @@
               </li>
               <li>
                 <a
-                  href="#about"
+                  href="#assurance-info"
                   class="text-gray-400 hover:text-white transition-colors"
                 >
-                  À propos
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#per"
-                  class="text-gray-400 hover:text-white transition-colors"
-                >
-                  Le PER
+                  Assurance retraite
                 </a>
               </li>
             </ul>
