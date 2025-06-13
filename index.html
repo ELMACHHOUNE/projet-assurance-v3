@@ -167,43 +167,12 @@
     >
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
-          <!-- Logo and Title -->
+          <!-- Title -->
           <div class="flex items-center">
-            <a href="/" class="flex items-center space-x-3">
-              <img
-                src="./assets/logo.webp"
-                alt="Aksam Assurance"
-                class="h-12 w-auto"
-              />
-            </a>
-          </div>
-
-          <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-8">
-            <a
-              href="#simulation"
-              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
-            >
-              Simulation
-            </a>
-            <a
-              href="#about"
-              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
-            >
-              À propos
-            </a>
-            <a
-              href="#per"
-              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
-            >
-              Le PER
-            </a>
-            <a
-              href="#contact"
-              class="text-gray-600 hover:text-accent transition-colors duration-200 font-medium"
-            >
-              Contact
-            </a>
+            <h1 class="text-base font-semibold text-primary">
+              <span class="typing-text"></span
+              ><span class="typing-cursor">|</span>
+            </h1>
           </div>
 
           <!-- Contact Button -->
@@ -228,67 +197,206 @@
               01.82.83.48.00
             </a>
           </div>
-
-          <!-- Mobile menu button -->
-          <div class="md:hidden">
-            <button
-              type="button"
-              class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary z-50"
-              aria-expanded="false"
-            >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                class="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile menu -->
-        <div
-          class="mobile-menu hidden md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-b border-gray-200 z-40"
-        >
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <a
-              href="#simulation"
-              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
-            >
-              Simulation
-            </a>
-            <a
-              href="#about"
-              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
-            >
-              À propos
-            </a>
-            <a
-              href="#per"
-              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
-            >
-              Le PER
-            </a>
-            <a
-              href="#contact"
-              class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
-            >
-              Contact
-            </a>
-          </div>
         </div>
       </nav>
     </header>
+
+    <style>
+      .typing-cursor {
+        display: inline-block;
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const text =
+          "Obtenez votre simulation pour une assurance complementaire retraite en ligne";
+        const typingText = document.querySelector(".typing-text");
+        const cursor = document.querySelector(".typing-cursor");
+
+        // Remove the cursor initially
+        cursor.style.display = "none";
+
+        // Create the typing animation
+        let i = 0;
+        function typeWriter() {
+          if (i < text.length) {
+            typingText.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 20); // Faster typing speed (reduced from 50ms to 20ms)
+          } else {
+            cursor.style.display = "inline-block";
+          }
+        }
+
+        // Start typing animation
+        typeWriter();
+
+        // Rest of your existing GSAP animations...
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Header Animation
+        gsap.from("header", {
+          duration: 1,
+          y: -50,
+          opacity: 0,
+          ease: "power3.out",
+        });
+
+        // Hero Section Animation
+        gsap.from(".hero-section", {
+          duration: 1,
+          y: 100,
+          opacity: 0,
+          ease: "power3.out",
+        });
+
+        // Simulation Section Animation
+        gsap.from("#simulation", {
+          scrollTrigger: {
+            trigger: "#simulation",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // About Section Animation
+        gsap.from("#about", {
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // PER Section Animation
+        gsap.from("#per", {
+          scrollTrigger: {
+            trigger: "#per",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Avantages Section Animation
+        gsap.from("#avantages", {
+          scrollTrigger: {
+            trigger: "#avantages",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Contact Section Animation
+        gsap.from("#contact", {
+          scrollTrigger: {
+            trigger: "#contact",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Footer Animation
+        gsap.from("footer", {
+          scrollTrigger: {
+            trigger: "footer",
+            start: "top 90%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 1,
+          y: 30,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Stagger animations for list items
+        gsap.utils.toArray("ul li").forEach((list) => {
+          gsap.from(list, {
+            scrollTrigger: {
+              trigger: list,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+            duration: 0.5,
+            y: 20,
+            opacity: 0,
+            ease: "power2.out",
+          });
+        });
+
+        // Form elements animation
+        gsap.from("form input, form select", {
+          scrollTrigger: {
+            trigger: "form",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.5,
+          x: 100,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out",
+        });
+
+        // Form container animation
+        gsap.from(".lg\\:col-span-1.order-first.lg\\:order-last", {
+          scrollTrigger: {
+            trigger: "#simulation",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.8,
+          x: 200,
+          opacity: 0,
+          ease: "power2.out",
+        });
+
+        // Fresh up button animation
+        gsap.from(".fresh-up-button", {
+          scrollTrigger: {
+            trigger: "#avantages",
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+          duration: 0.8,
+          y: 50,
+          opacity: 0,
+          scale: 0.8,
+          ease: "back.out(1.7)",
+        });
+      });
+    </script>
 
     <main id="simulation" class="w-full">
       <!-- Hero Section -->
@@ -1028,243 +1136,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Mobile Menu Script -->
-    <script>
-      // Wait for the DOM to be fully loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        // Mobile menu functionality
-        const mobileMenuButton = document.querySelector(".mobile-menu-button");
-        const mobileMenu = document.querySelector(".mobile-menu");
-        const mobileMenuLinks = mobileMenu.querySelectorAll("a");
-
-        // Initialize mobile menu state
-        gsap.set(mobileMenu, {
-          height: 0,
-          opacity: 0,
-          display: "none",
-        });
-
-        // Mobile menu toggle with GSAP
-        mobileMenuButton.addEventListener("click", function () {
-          const isExpanded =
-            mobileMenuButton.getAttribute("aria-expanded") === "true";
-
-          if (!isExpanded) {
-            // Open menu
-            gsap.to(mobileMenu, {
-              height: "auto",
-              opacity: 1,
-              display: "block",
-              duration: 0.3,
-              ease: "power2.out",
-            });
-
-            // Animate menu items
-            gsap.from(mobileMenuLinks, {
-              y: 20,
-              opacity: 0,
-              duration: 0.3,
-              stagger: 0.1,
-              ease: "power2.out",
-            });
-          } else {
-            // Close menu
-            gsap.to(mobileMenu, {
-              height: 0,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power2.in",
-              onComplete: () => {
-                mobileMenu.style.display = "none";
-              },
-            });
-          }
-
-          mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
-        });
-
-        // Close menu when clicking links
-        mobileMenuLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            gsap.to(mobileMenu, {
-              height: 0,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power2.in",
-              onComplete: () => {
-                mobileMenu.style.display = "none";
-              },
-            });
-            mobileMenuButton.setAttribute("aria-expanded", "false");
-          });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener("click", function (event) {
-          if (
-            !mobileMenu.contains(event.target) &&
-            !mobileMenuButton.contains(event.target)
-          ) {
-            gsap.to(mobileMenu, {
-              height: 0,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power2.in",
-              onComplete: () => {
-                mobileMenu.style.display = "none";
-              },
-            });
-            mobileMenuButton.setAttribute("aria-expanded", "false");
-          }
-        });
-
-        // GSAP Animations for other sections
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero Section Animation
-        gsap.from(".hero-section", {
-          duration: 1,
-          y: 100,
-          opacity: 0,
-          ease: "power3.out",
-        });
-
-        // Simulation Section Animation
-        gsap.from("#simulation", {
-          scrollTrigger: {
-            trigger: "#simulation",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // About Section Animation
-        gsap.from("#about", {
-          scrollTrigger: {
-            trigger: "#about",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // PER Section Animation
-        gsap.from("#per", {
-          scrollTrigger: {
-            trigger: "#per",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // Avantages Section Animation
-        gsap.from("#avantages", {
-          scrollTrigger: {
-            trigger: "#avantages",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // Contact Section Animation
-        gsap.from("#contact", {
-          scrollTrigger: {
-            trigger: "#contact",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // Footer Animation
-        gsap.from("footer", {
-          scrollTrigger: {
-            trigger: "footer",
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 1,
-          y: 30,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // Stagger animations for list items
-        gsap.utils.toArray("ul li").forEach((list) => {
-          gsap.from(list, {
-            scrollTrigger: {
-              trigger: list,
-              start: "top 90%",
-              toggleActions: "play none none reverse",
-            },
-            duration: 0.5,
-            y: 20,
-            opacity: 0,
-            ease: "power2.out",
-          });
-        });
-
-        // Form elements animation
-        gsap.from("form input, form select", {
-          scrollTrigger: {
-            trigger: "form",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 0.5,
-          x: 100,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-        });
-
-        // Form container animation
-        gsap.from(".lg\\:col-span-1.order-first.lg\\:order-last", {
-          scrollTrigger: {
-            trigger: "#simulation",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 0.8,
-          x: 200,
-          opacity: 0,
-          ease: "power2.out",
-        });
-
-        // Fresh up button animation
-        gsap.from(".fresh-up-button", {
-          scrollTrigger: {
-            trigger: "#avantages",
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-          duration: 0.8,
-          y: 50,
-          opacity: 0,
-          scale: 0.8,
-          ease: "back.out(1.7)",
-        });
-      });
-    </script>
 
     <!-- Add this script before the closing body tag -->
     <script>
